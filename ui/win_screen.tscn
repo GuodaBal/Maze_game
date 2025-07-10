@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf4g0ainca6tc"]
+
+[ext_resource type="Script" uid="uid://ckadut43urkml" path="res://ui/win_screen.gd" id="1_7dp3f"]
+
+[node name="win_screen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7dp3f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 646.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 117.0
+offset_right = 1171.0
+offset_bottom = 254.0
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]You escaped!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 329.0
+offset_right = 1081.0
+offset_bottom = 551.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Press enter to exit game"

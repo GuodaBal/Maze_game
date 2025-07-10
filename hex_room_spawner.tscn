@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b26sd76it5b8n"]
+
+[ext_resource type="Script" uid="uid://be588uksio8vt" path="res://hex_room_spawner.gd" id="1_h1737"]
+
+[node name="hex_room_spawner" type="Node3D"]
+rotation_edit_mode = 1
+script = ExtResource("1_h1737")

@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=4 uid="uid://bkufxd4j1ds8k"]
+
+[ext_resource type="Shader" uid="uid://dhyw6nmwkn6kl" path="res://shaders/map.gdshader" id="1_bm861"]
+[ext_resource type="Texture2D" uid="uid://m2hxulve4i3s" path="res://2d_assets/map_piece_3.png" id="2_dibs0"]
+[ext_resource type="Texture2D" uid="uid://42g1ejajuci7" path="res://2d_assets/test2025-07-0914_55_52.png" id="3_7yes2"]
+[ext_resource type="Script" uid="uid://7ih6l5srmowk" path="res://interactable_objects/map_fragment.gd" id="4_dibs0"]
+[ext_resource type="Texture2D" uid="uid://dtlcpdlb140pw" path="res://2d_assets/map_piece_1.png" id="5_in8ef"]
+[ext_resource type="Texture2D" uid="uid://chht6vdwvt76l" path="res://2d_assets/map_piece_2.png" id="6_jhncl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_in8ef"]
+render_priority = 0
+shader = ExtResource("1_bm861")
+shader_parameter/fragment_image = ExtResource("5_in8ef")
+shader_parameter/map_image = ExtResource("3_7yes2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7cs32"]
+_surfaces = [{
+"aabb": AABB(-0.206548, -0.0367692, -0.272897, 0.548389, 0.212778, 0.623436),
+"format": 34896613377,
+"index_count": 150,
+"index_data": PackedByteArray("HQABAAIAHQAAAAEAHgAdAAIAHgACAAMAHwAAAB0AHwAEAAAAIAAdAB4AIAAfAB0AHAAeAAMAHAADABEAFAAgAB4AFAAeABwAIQAEAB8AIQAFAAQAFQAfACAAFQAhAB8AGAAgABQAGAAVACAAIgAFACEAIgAHAAUACAAHACIACAAJAAcABgAIACIAFgAiACEABgAiABYAFgAhABUACwAGABYAFwAWABUACwAWABcAFwAVABgADAALABcADAAXABkAGQAXABgADQAMABkADQAZAAoAGQAYABoACgAZABoAGgAYABQACgAaAA4AGgAUABsADgAaABsAGwAUABwADgAbAA8AGwAcACMADwAbACMAIwAcABEADwAjABAAIwARABIAEAAjABIAEAASABMA"),
+"lods": [0.0453754, PackedByteArray("AAABAAIAFAAAAAIAFAACAAMAFQAAABQAFQAEAAAAFQAFAAQAFgAFABUAFgAHAAUACAAJAAcACAAHABYABgAIABYACwAGABYACwAWABcAFwAWABUADAALABcAFwAVABgAGAAVABQADAAXABkAGQAXABgADQAMABkADQAZAAoAGQAYABoACgAZABoAGgAYABQACgAaAA4ADgAaABsAGgAUABsADgAbAA8ADwAbABAAGwAUABwAGwAcABAAHAAUAAMAHAADABEAEAAcABEAEAARABIAEAASABMA"), 0.128852, PackedByteArray("AAABAAIAAwAAAAIAAwAEAAAAAwAFAAQABgAFAAMABgAHAAUACAAHAAYACAAJAAcACgAGAAMACwAGAAoADAALAAoADQAMAAoACgADAA4ADgADAA8ADwADABAAEAADABEAEAARABIAEAASABMA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("0R2nPp0uAADfJsdjAAAAAKVGI2OCDAAAH25EfGoQAADdIKpiblcAAEgjfZ0GegAAOmCXy1zMAADxGRjA6pYAAB0zuNIMwQAAAADRniCsAADH0n+HudAAAHWHC6qi1gAA2aXvjLXmAACvt652//8AAHjO1FpYoQAAiM4hY9N3AAAJ342aeFYAANKdhLy3EwAA9NL//yMgAAD//0X1Mz4AAJmUAQyhWAAAyXduPBmAAABWdmiYoqYAANSUA1qKqgAAZJYAAFR/AADXsfhbDbcAAPSvyRFwiAAAx7CWH55fAAC9kpNXVDUAAMhDqkK5NwAAVGyVPfQ2AABETa1Xa14AADx0RyOGWwAAtVJGlLiBAAA0S7HaVaMAACK4wXsHPQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dibs0"]
+resource_name = "map_Plane"
+_surfaces = [{
+"aabb": AABB(-0.206548, -0.0367692, -0.272897, 0.548389, 0.212778, 0.623436),
+"attribute_data": PackedByteArray("zMwAAP//AAD//zIz//9lZpmZAABmZgAAAABlZjMzAAAAADIzAAAAADMz//8AAJmZAADMzAAA//9mZv//mZn//8zM/////5mZ///MzP////+ZmZmZZWZlZjIzZWYzM5mZZmaZmTMzzMxmZszMmZnMzMzMmZnLzDIzy8xlZpmZMjOZmWVmZWYyMzIzMjPMzMzM"),
+"format": 34896613399,
+"index_count": 150,
+"index_data": PackedByteArray("HQABAAIAHQAAAAEAHgAdAAIAHgACAAMAHwAAAB0AHwAEAAAAIAAdAB4AIAAfAB0AHAAeAAMAHAADABEAFAAgAB4AFAAeABwAIQAEAB8AIQAFAAQAFQAfACAAFQAhAB8AGAAgABQAGAAVACAAIgAFACEAIgAHAAUACAAHACIACAAJAAcABgAIACIAFgAiACEABgAiABYAFgAhABUACwAGABYAFwAWABUACwAWABcAFwAVABgADAALABcADAAXABkAGQAXABgADQAMABkADQAZAAoAGQAYABoACgAZABoAGgAYABQACgAaAA4AGgAUABsADgAaABsAGwAUABwADgAbAA8AGwAcACMADwAbACMAIwAcABEADwAjABAAIwARABIAEAAjABIAEAASABMA"),
+"lods": [0.0453754, PackedByteArray("AAABAAIAFAAAAAIAFAACAAMAFQAAABQAFQAEAAAAFQAFAAQAFgAFABUAFgAHAAUACAAJAAcACAAHABYABgAIABYACwAGABYACwAWABcAFwAWABUADAALABcAFwAVABgAGAAVABQADAAXABkAGQAXABgADQAMABkADQAZAAoAGQAYABoACgAZABoAGgAYABQACgAaAA4ADgAaABsAGgAUABsADgAbAA8ADwAbABAAGwAUABwAGwAcABAAHAAUAAMAHAADABEAEAAcABEAEAARABIAEAASABMA"), 0.128852, PackedByteArray("AAABAAIAAwAAAAIAAwAEAAAAAwAFAAQABgAFAAMABgAHAAUACAAHAAYACAAJAAcACgAGAAMACwAGAAoADAALAAoADQAMAAoACgADAA4ADgADAA8ADwADABAAEAADABEAEAARABIAEAASABMA")],
+"material": SubResource("ShaderMaterial_in8ef"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("0R2nPp0uYtTfJsdjAACOzaVGI2OCDEnOH25EfGoQ1cvdIKpibldc3UgjfZ0Gep7eOmCXy1zMDcjxGRjA6pbO0h0zuNIMwXfJAADRniCsXcvH0n+HudD92HWHC6qi1kHP2aXvjLXm29Gvt652//9az3jO1FpYoeLoiM4hY9N3T94J342aeFbZxtKdhLy3ExLE9NL//yMgDcD//0X1Mz77vpmUAQyhWDDRyXduPBmA5dJWdmiYoqYd0NSUA1qKqpHWZJYAAFR/2NbXsfhbDbdJ3fSvyRFwiB3jx7CWH55flNa9kpNXVDXEyshDqkK5N6zUVGyVPfQ2MNBETa1Xa17C2Dx0RyOGW7TQtVJGlLiBRtk0S7HaVaMi0CK4wXsHPXDH39ZVK2veay1Y3ooqWubjKkDLoCsLzaUzQs6gOmXir0I74ZI/KO0jRnrYwDOCyfE3WNTlNnLc4DvT23sxnvGeN6z9lz3Q9Qgz4/xdOnH+jj0L2/Iler9mLAnFOza6xpYzLs3+KobR0jHo2uQwaexaMjHrESsS1HMnXdpxJKXGoCeiySQhwMWCMQfUwzp0+Bs2")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7cs32")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bm861"]
+size = Vector3(0.5, 0.036, 0.5)
+
+[node name="Plane" type="MeshInstance3D" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0246052, 0)
+mesh = SubResource("ArrayMesh_dibs0")
+skeleton = NodePath("")
+script = ExtResource("4_dibs0")
+fragment_image_1 = ExtResource("5_in8ef")
+fragment_image_2 = ExtResource("6_jhncl")
+fragment_image_3 = ExtResource("2_dibs0")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155467, 0.0401391, 0.103859)
+shape = SubResource("BoxShape3D_bm861")
+
+[node name="Prompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Prompt"]
+layout_mode = 0
+offset_right = 246.0
+offset_bottom = 122.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prompt"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 263.0
+offset_bottom = 127.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Click to pick up"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103404, 0)
+light_color = Color(0.858291, 0.823328, 0.569081, 1)
+light_energy = 0.484
+omni_range = 0.3
+omni_attenuation = 0.355

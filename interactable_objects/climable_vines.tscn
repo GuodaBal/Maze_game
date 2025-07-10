@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://beku1ddchy5cg"]
+
+[ext_resource type="Script" uid="uid://xsyyis2ac6oh" path="res://interactable_objects/climable_vines.gd" id="1_prpsk"]
+[ext_resource type="PackedScene" uid="uid://dv27466oecqlb" path="res://3d_models/fram_and_vines.blend" id="2_prpsk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ym30d"]
+size = Vector3(2.84, 4.145, 0.535)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prpsk"]
+size = Vector3(1, 0.0078125, 0.23291)
+
+[node name="Node3D" type="Node3D" groups=["interactable"]]
+script = ExtResource("1_prpsk")
+
+[node name="fram_and_vines" parent="." instance=ExtResource("2_prpsk")]
+
+[node name="Area3D" type="Area3D" parent="fram_and_vines"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fram_and_vines/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.366)
+shape = SubResource("BoxShape3D_ym30d")
+
+[node name="Prompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Prompt"]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 225.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prompt"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 335.0
+offset_bottom = 229.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Press space to climb up
+Press enter to climb down"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0015, -0.749574)
+shape = SubResource("BoxShape3D_prpsk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0015, 0.702814)
+shape = SubResource("BoxShape3D_prpsk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0.644411, 1.0015, 0.346597)
+shape = SubResource("BoxShape3D_prpsk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -0.644582, 1.0015, -0.393641)
+shape = SubResource("BoxShape3D_prpsk")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.652965, 1.0015, -0.393641)
+shape = SubResource("BoxShape3D_prpsk")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -0.649406, 1.0015, 0.344193)
+shape = SubResource("BoxShape3D_prpsk")
+
+[connection signal="body_entered" from="fram_and_vines/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="fram_and_vines/Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ddjddkd586l"]
+
+[ext_resource type="PackedScene" uid="uid://bod64xeogtppc" path="res://3d_models/Key_door.blend" id="1_hsxc7"]
+
+[node name="Key_door" instance=ExtResource("1_hsxc7")]
+
+[node name="door" parent="." index="0"]
+transform = Transform3D(0.0576882, 0.0209968, -9.17799e-10, 0, -2.68346e-09, -0.0613905, -0.0209968, 0.0576882, -2.52163e-09, -0.139977, 0, -0.821292)
+
+[node name="hinges" parent="." index="1"]
+transform = Transform3D(0.0613905, 0, 0, 0, -2.1955e-08, -0.0613905, 0, 0.0613905, -2.1955e-08, 0.0109439, -0.0149257, -0.359912)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://q20j74hmb3p6"]
+
+[ext_resource type="PackedScene" uid="uid://cdb3ifkl7mg6g" path="res://3d_models/Belladonna_flowers.blend" id="1_huvrb"]
+[ext_resource type="Script" uid="uid://bjljwyian2kd4" path="res://interactable_objects/pickable_flowers.gd" id="1_qsdnv"]
+[ext_resource type="PackedScene" uid="uid://b3o8f4hgyjpot" path="res://3d_models/Belladonna_no_flowers.blend" id="2_qsdnv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qsdnv"]
+radius = 0.334598
+
+[node name="Pickable_flowers" type="Node3D" groups=["interactable"]]
+script = ExtResource("1_qsdnv")
+
+[node name="Unpicked" parent="." instance=ExtResource("1_huvrb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Picked" parent="." instance=ExtResource("2_qsdnv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277359, 0.0280053)
+shape = SubResource("SphereShape3D_qsdnv")
+
+[node name="Prompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Prompt"]
+layout_mode = 0
+offset_right = 246.0
+offset_bottom = 122.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prompt"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 263.0
+offset_bottom = 127.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Click to pick flowers"

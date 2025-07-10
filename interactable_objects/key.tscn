@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsrq1prcbg0qw"]
+
+[ext_resource type="Script" uid="uid://hpkqlmye1n7c" path="res://interactable_objects/key.gd" id="1_4u5j1"]
+[ext_resource type="PackedScene" uid="uid://8gmwxid48d3g" path="res://3d_models/key.tscn" id="1_d0in7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avdsw"]
+size = Vector3(0.135, 0.025, 0.36)
+
+[node name="key" type="Node3D" groups=["interactable"]]
+script = ExtResource("1_4u5j1")
+
+[node name="key_model" parent="." instance=ExtResource("1_d0in7")]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, -0.058, 0.02, -0.121543)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013737, 0)
+shape = SubResource("BoxShape3D_avdsw")
+
+[node name="Prompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Prompt"]
+layout_mode = 0
+offset_right = 246.0
+offset_bottom = 122.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prompt"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 263.0
+offset_bottom = 127.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Click to pick up"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0243069, 0)
+light_color = Color(0.858291, 0.823328, 0.569081, 1)
+light_energy = 0.484
+omni_range = 0.3
+omni_attenuation = 0.355

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=4 uid="uid://cbp8v8swbjj77"]
+
+[ext_resource type="PackedScene" uid="uid://chjb4abadarp4" path="res://3d_models/hexagon_plane.blend" id="1_autnb"]
+[ext_resource type="Texture2D" uid="uid://qf4o2xpevbur" path="res://3d_models/textures/ground_tiles_21_1k/ground_tiles_21_baseColor_1k.png" id="2_0s6ro"]
+[ext_resource type="Texture2D" uid="uid://ddh1kn52uv7yr" path="res://3d_models/textures/ground_tiles_21_1k/ground_tiles_21_normal_dx_1k.png" id="3_c21u0"]
+[ext_resource type="Texture2D" uid="uid://bftj3ea6xv85b" path="res://3d_models/textures/ground_tiles_21_1k/ground_tiles_21_roughness_1k.png" id="4_iwyx6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s6ro"]
+albedo_texture = ExtResource("2_0s6ro")
+roughness_texture = ExtResource("4_iwyx6")
+normal_enabled = true
+normal_scale = 9.53
+normal_texture = ExtResource("3_c21u0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xy7rg"]
+_surfaces = [{
+"aabb": AABB(-0.866, 0, -1, 1.732, 1e-05, 2),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("/38AAP//AAD//wAA/z8AAP//AAD/vwAA/38AAAAAAAAAAAAA/78AAAAAAAD/PwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oahfk"]
+resource_name = "hexagon_plane_Plane"
+_surfaces = [{
+"aabb": AABB(-0.866, 0, -1, 1.732, 1e-05, 2),
+"attribute_data": PackedByteArray("/3//////AAD//////38AAAAA//8AAAAA"),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMA"),
+"material": SubResource("StandardMaterial3D_0s6ro"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("/38AAP//y8D//wAA/z/LwP//AAD/v7rC/38AAAAAy8AAAAAA/7/LwAAAAAD/P7rCxOMcjsTjHI6q6VZTxOMcjsTjHI6q6VZT")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xy7rg")
+
+[node name="hexagon_plane" instance=ExtResource("1_autnb")]
+
+[node name="Plane" parent="." index="0"]
+mesh = SubResource("ArrayMesh_oahfk")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0sqob41ysceh"]
+
+[ext_resource type="Script" uid="uid://c5gjwtss7jiv4" path="res://map_renderer.gd" id="1_35ej1"]
+
+[node name="map_renderer" type="Node3D"]
+script = ExtResource("1_35ej1")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 1.27129, 0)
+projection = 1
+size = 5.0

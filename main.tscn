@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dnpdde2ky6tl7"]
+
+[ext_resource type="PackedScene" uid="uid://cbtwvoahh877" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b26sd76it5b8n" path="res://hex_room_spawner.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://q20j74hmb3p6" path="res://interactable_objects/pickable_flowers.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bfjkuyltkht8e" path="res://3d_models/textures/bark_08_1k/bark_08_baseColor_1k.png" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c0sqob41ysceh" path="res://map_renderer.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dfdpgvm7yus2k" path="res://3d_models/textures/bark_08_1k/bark_08_normal_gl_1k.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://cp7ybwkaa0tm8" path="res://3d_models/textures/bark_08_1k/bark_08_roughness_1k.png" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cn4u0fpqppqlk" path="res://ui/game_start.tscn" id="9_kek77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = ExtResource("3_lquwl")
+roughness_texture = ExtResource("5_5vw27")
+normal_enabled = true
+normal_scale = 3.45
+normal_texture = ExtResource("4_272bh")
+uv1_scale = Vector3(50, 50, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
+material = SubResource("StandardMaterial3D_1bvp3")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(100, 0.01, 100)
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.97307, 1.00758e-08, -0.230508, 0.173159, -0.660067, 0.730977, -0.152151, -0.751207, -0.642292, 0, 0, 0)
+light_color = Color(1, 1, 0.870588, 1)
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.951132, -1.34974e-08, 0.308785, -0.292586, 0.319637, 0.901236, -0.0986993, -0.94754, 0.304017, 4.30688, 0, 0)
+visible = false
+light_color = Color(0.909401, 1, 0.999901, 1)
+light_energy = 0.234
+light_indirect_energy = 16.0
+light_angular_distance = 9.09
+
+[node name="hex_room_spawner" parent="." instance=ExtResource("2_h2yge")]
+remove_floor_chance = 0.0
+
+[node name="hex_room_spawner2" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="hex_room_spawner3" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="player" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="floor" type="StaticBody3D" parent="."]
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="Pickable_flowers" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41735, -1.65002)
+
+[node name="map_renderer" parent="." node_paths=PackedStringArray("room_spawners") instance=ExtResource("4_1bvp3")]
+room_spawners = [NodePath("../hex_room_spawner"), NodePath("../hex_room_spawner2"), NodePath("../hex_room_spawner3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="game_start" parent="." instance=ExtResource("9_kek77")]
+
+[editable path="map_renderer"]

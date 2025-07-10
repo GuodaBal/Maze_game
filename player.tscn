@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbtwvoahh877"]
+
+[ext_resource type="Script" uid="uid://brv0u4k65qf1b" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+radius = 0.1
+height = 0.5
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+collision_mask = 3
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_4flbx")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144491, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.125726)
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true

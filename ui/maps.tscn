@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://gakvp22qedg"]
+
+[ext_resource type="Script" uid="uid://mk06a7vxh268" path="res://ui/maps.gd" id="1_yee4k"]
+[ext_resource type="Shader" uid="uid://dddiok0cohhk6" path="res://shaders/map_2d.gdshader" id="2_ldkw0"]
+[ext_resource type="Texture2D" uid="uid://dtlcpdlb140pw" path="res://2d_assets/map_piece_1.png" id="3_vo12b"]
+[ext_resource type="Texture2D" uid="uid://chht6vdwvt76l" path="res://2d_assets/map_piece_2.png" id="4_7qduh"]
+[ext_resource type="Texture2D" uid="uid://m2hxulve4i3s" path="res://2d_assets/map_piece_3.png" id="5_s78kk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46rew"]
+shader = ExtResource("2_ldkw0")
+shader_parameter/fragment_image = ExtResource("3_vo12b")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1bqrw"]
+load_path = "res://.godot/imported/test2025-07-0914_55_52.png-44580cf0fc61bd75c0d15c644b2b9383.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgl1y"]
+shader = ExtResource("2_ldkw0")
+shader_parameter/fragment_image = ExtResource("4_7qduh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6708"]
+load_path = "res://.godot/imported/test2025-07-0914_55_52.png-44580cf0fc61bd75c0d15c644b2b9383.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7y1p"]
+shader = ExtResource("2_ldkw0")
+shader_parameter/fragment_image = ExtResource("5_s78kk")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7nhg"]
+load_path = "res://.godot/imported/test2025-07-0914_55_52.png-44580cf0fc61bd75c0d15c644b2b9383.s3tc.ctex"
+
+[node name="Maps" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yee4k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 656.0
+color = Color(0.105882, 0.207843, 0.160784, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 16.0
+offset_right = 1150.0
+offset_bottom = 154.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Press left or right arrows to switch between floors"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 1.0
+anchor_right = 0.509
+anchor_bottom = 1.0
+offset_left = -79.368
+offset_top = -76.0
+offset_right = 142.632
+offset_bottom = 62.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Floor: 1"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -346.0
+offset_top = -538.0
+offset_right = 354.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0579285, 0.107253, 0.0539177, 0.32549)
+
+[node name="Fragment1" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_46rew")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -510.0
+offset_right = 314.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("CompressedTexture2D_1bqrw")
+
+[node name="Fragment2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_wgl1y")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -510.0
+offset_right = 314.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("CompressedTexture2D_r6708")
+
+[node name="Fragment3" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_v7y1p")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -510.0
+offset_right = 314.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("CompressedTexture2D_x7nhg")
