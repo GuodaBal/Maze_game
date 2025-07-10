@@ -48,12 +48,18 @@ light_angular_distance = 9.09
 
 [node name="hex_room_spawner" parent="." instance=ExtResource("2_h2yge")]
 remove_floor_chance = 0.0
+flower_spawn_chance = 0.05
+fireflies_spawn_chance = 0.2
 
 [node name="hex_room_spawner2" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+flower_spawn_chance = 0.05
+fireflies_spawn_chance = 0.2
 
 [node name="hex_room_spawner3" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+flower_spawn_chance = 0.05
+fireflies_spawn_chance = 0.2
 
 [node name="player" parent="." instance=ExtResource("2_0xm2m")]
 
