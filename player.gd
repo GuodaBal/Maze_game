@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 #Movement parameters
-@export var speed = 3
+@export var speed = 2
 @export var jump_strength = 3
 @export var climb_speed = 2
 @export var gravity = 9.8
